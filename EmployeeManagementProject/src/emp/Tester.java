@@ -6,7 +6,7 @@ package emp;
 public class Tester{
     public static void main(String[] args) {
     	//Uncomment the code given below after implementing the solution
-    	/*
+    	
     	Admin admin = new Admin();
     	
     	Asset asset1 = null;
@@ -208,6 +208,6 @@ public class Tester{
 		}
 		catch(Exception e) {
 			System.out.println(e.getMessage());
-		}*/
+		}
     }
 }
