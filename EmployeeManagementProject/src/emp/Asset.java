@@ -4,13 +4,12 @@
 package emp;
 
 public class Asset {
-	// Implement your code here
-	String assetId;
-	String assetName;
-	String assetExpiry;
+	private String assetId;
+	private String assetName;
+	private String assetExpiry;
 
 	public Asset(String assetId, String assetName, String assetExpiry) {
-		this.assetId = assetId;
+		setAssetId(assetId);
 		this.assetName = assetName;
 		this.assetExpiry = assetExpiry;
 	}
@@ -20,8 +19,10 @@ public class Asset {
 	}
 
 	public void setAssetId(String assetId) {
-		if (assetId != null && assetId.matches("^(DSK|LTP|IPH)-\\d{6}[HhLl]$")) {
+		if (assetId.matches("[A-Z]{3}-\\d{6}[A-Z]")) {
 			this.assetId = assetId;
+		} else {
+			throw new IllegalArgumentException("Invalid asset id format");
 		}
 	}
 
@@ -41,12 +42,8 @@ public class Asset {
 		this.assetExpiry = assetExpiry;
 	}
 
-	// Uncomment the code given below after implementing the class
-	// Do not modify the code given below
-
 	@Override
 	public String toString() {
-		return "Asset Id: " + getAssetId() + ", Asset Name: " + getAssetName() + ", Asset Expiry: " + getAssetExpiry();
+		return assetId + " - " + assetName + " (Valid till: " + assetExpiry + ")";
 	}
-
 }

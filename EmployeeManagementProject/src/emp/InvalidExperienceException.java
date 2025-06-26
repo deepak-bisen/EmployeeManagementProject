@@ -3,8 +3,8 @@
 
 package emp;
 
-public class InvalidExperienceException {
-	//Implement your code here
-	public InvalidExperienceException(String message) {
-	}
+public class InvalidExperienceException extends Exception {
+    public InvalidExperienceException(String message) {
+        super(message);
+    }
 }

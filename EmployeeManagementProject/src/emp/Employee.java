@@ -11,12 +11,21 @@ public abstract class Employee {
 	static int contractIdCounter;
 	static int permanentIdCounter;
 
-	public Employee() {
-		// TODO Auto-generated constructor stub
+	static {
+		contractIdCounter = 10000;
+		permanentIdCounter = 10000;
 	}
+	public Employee() {}
 
 	Employee(String employeeName) {
 		this.employeeName = employeeName;
+	
+		if (this instanceof ContractEmployee) {
+            employeeId = "C" + (++contractIdCounter);
+        } else if (this instanceof PermanentEmployee) {
+            employeeId = "E" + (++permanentIdCounter);
+        }
+
 	}
 
 	abstract public void calculateSalary(float salaryFactor);
@@ -34,7 +43,11 @@ public abstract class Employee {
 	}
 
 	public void setEmployeeName(String employeeName) {
-		this.employeeName = employeeName;
+		 if (employeeName != null && employeeName.matches("([A-Z][a-zA-Z]{1,} ?){2,}")) {
+	            this.employeeName = employeeName;
+	        } else {
+	            throw new IllegalArgumentException("Invalid employee name!");
+	        }
 	}
 
 	public double getSalary() {
@@ -42,7 +55,7 @@ public abstract class Employee {
 	}
 
 	public void setSalary(double salary) {
-		this.salary = salary;
+		 this.salary = salary > 0 ? salary : 0;
 	}
 
 	public static int getContractIdCounter() {

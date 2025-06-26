@@ -8,12 +8,21 @@ public class ContractEmployee extends Employee {
 	double wagePerHour;
 
 	public ContractEmployee(String employeeName, double wagePerHour) {
-
+		super(employeeName);
 		this.wagePerHour = wagePerHour;
 	}
 
+	@Override
 	public void calculateSalary(float hoursWorked) {
-
+		double calculatedSalary;
+		if (hoursWorked >= 190) {
+			calculatedSalary = wagePerHour * hoursWorked;
+		} else {
+			float shortfall = 190 - hoursWorked;
+			double deduction = (wagePerHour / 2) * shortfall;
+			calculatedSalary = (wagePerHour * hoursWorked) - deduction;
+		}
+		setSalary(Math.round(calculatedSalary)); // round and set
 	}
 
 	public double getWagePerHour() {

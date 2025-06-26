@@ -3,9 +3,8 @@
 
 package emp;
 
-public class InvalidAssetsException {
-	//Implement your code here
-public InvalidAssetsException(String message) {
-	// TODO Auto-generated constructor stub
-}
+public class InvalidAssetsException extends Exception {
+    public InvalidAssetsException(String message) {
+        super(message);
+    }
 }
