@@ -5,25 +5,25 @@ package emp;
 
 public abstract class Employee {
 	// Implement your code here
-	String employeeId;
-	String employeeName;
-	double salary;
-	static int contractIdCounter;
-	static int permanentIdCounter;
+private	String employeeId;
+private	String employeeName;
+private	double salary;
+private	static int contractIdCounter;
+private	static int permenantIdCounter;
 
 	static {
 		contractIdCounter = 10000;
-		permanentIdCounter = 10000;
+		permenantIdCounter = 10000;
 	}
 	public Employee() {}
-
-	Employee(String employeeName) {
+ 
+    public Employee(String employeeName) {
 		this.employeeName = employeeName;
 	
 		if (this instanceof ContractEmployee) {
             employeeId = "C" + (++contractIdCounter);
         } else if (this instanceof PermanentEmployee) {
-            employeeId = "E" + (++permanentIdCounter);
+            employeeId = "E" + (++permenantIdCounter);
         }
 
 	}
@@ -66,12 +66,12 @@ public abstract class Employee {
 		Employee.contractIdCounter = contractIdCounter;
 	}
 
-	public static int getPermanentIdCounter() {
-		return permanentIdCounter;
+	public static int getPermenantIdCounter() {
+		return permenantIdCounter;
 	}
 
-	public static void setPermanentIdCounter(int permanentIdCounter) {
-		Employee.permanentIdCounter = permanentIdCounter;
+	public static void setPermenantIdCounter(int permenantIdCounter) {
+		Employee.permenantIdCounter = permenantIdCounter;
 	}
 
 	
@@ -84,4 +84,3 @@ public abstract class Employee {
 	}
 
 }
-

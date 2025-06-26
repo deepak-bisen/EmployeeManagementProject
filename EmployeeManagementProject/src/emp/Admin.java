@@ -1,19 +1,15 @@
-//lex_auth_0130008620764692481835
-//do not modify the above line
-
 package emp;
-
 import java.util.ArrayList;
 
 public class Admin {
 
-    public static void generateSalarySlip(Employee[] employees, float[] salaryFactor) {
+    public void generateSalarySlip(Employee[] employees, float[] salaryFactor) {
         for (int i = 0; i < employees.length; i++) {
             employees[i].calculateSalary(salaryFactor[i]);
         }
     }
 
-    public static int generateAssetsReport(Employee[] employees, String lastDate) {
+    public int generateAssetsReport(Employee[] employees, String lastDate) {
         int totalAssets = 0;
         for (Employee emp : employees) {
             if (emp instanceof PermanentEmployee) {
@@ -30,7 +26,7 @@ public class Admin {
         return totalAssets;
     }
 
-    public static String[] generateAssetsReport(Employee[] employees, char assetCategory) {
+    public String[] generateAssetsReport(Employee[] employees, char assetCategory) {
         ArrayList<String> resultList = new ArrayList<>();
         char category = Character.toUpperCase(assetCategory);
 

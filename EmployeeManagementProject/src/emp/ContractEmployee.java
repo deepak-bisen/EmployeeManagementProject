@@ -5,7 +5,7 @@ package emp;
 
 public class ContractEmployee extends Employee {
 	// Implement your code here
-	double wagePerHour;
+private	double wagePerHour;
 
 	public ContractEmployee(String employeeName, double wagePerHour) {
 		super(employeeName);

@@ -7,10 +7,10 @@ import java.util.ArrayList;
 
 public class PermanentEmployee extends Employee {
 	// Implement your code here
-	double basicPay;
-	String[] salaryComponents;
-	float experience;
-	Asset[] assets;
+private	double basicPay;
+private	String[] salaryComponents;
+private	float experience;
+private	Asset[] assets;
 
 	public PermanentEmployee(String employeeName, double basicPay, String[] salaryComponents, Asset[] assets) {
 		super(employeeName); // call to base class constructor
@@ -96,8 +96,8 @@ public class PermanentEmployee extends Employee {
 		return experience;
 	}
 
-	public void setExperience(float exprience) {
-		this.experience = exprience;
+	public void setExperience(float experience) {
+		this.experience = experience;
 	}
 
 	public Asset[] getAssets() {
